@@ -1,0 +1,1 @@
+json.set!("firebase_token", @token)

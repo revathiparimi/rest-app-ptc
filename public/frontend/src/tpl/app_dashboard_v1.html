@@ -1,0 +1,189 @@
+<div ng-controller="FlotChartDemoCtrl" class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false;
+    app.settings.asideDock = false;
+  ">
+  <!-- main -->
+  <div class="col">
+    <!-- main header -->
+    <div ui-butterbar></div>
+    <div class="bg-light lter wrapper-md">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <h1 class="m-n  h3 text-black">DASHBOARD</h1>
+          <small class="text-muted">Welcome to PAZ Gas filling Station</small>
+        </div>
+
+      </div>
+    </div>
+    <!-- / main header -->
+    <div class="wrapper-md" cg-busy="{promise:myPromise,message:'Refuelling'}">
+      <!-- stats -->
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="row row-sm text-center">
+            <div class="col-xs-6">
+              <div class="col-xs-4 p-0" style="background: #37B349;min-height: 91px;">
+                <img src="img/pic_icon.png" alt="user-wight" style="padding: 17px 0px;width:54px">
+              </div>
+              <div class="col-xs-8 p-0">
+              <div class="panel padder-v item" style="background:#ADF6B7">
+                <span class="text-xs"><b>TOTAL CONVERSION NUMBER</b></b></span>
+
+                <div class="h1 font-thin h1">
+                  <span>{{conversionNum}}</span>
+
+                </div>
+
+              </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="col-xs-4 p-0" style="background: #F6921E;min-height: 91px;">
+                <img src="img/pic_icon.png" alt="user-wight" style="padding: 17px 0px;width:54px">
+              </div>
+              <div class="col-xs-8 p-0">
+              <div class="panel padder-v item" style="background:#FAD1A2">
+                <span class="text-xs"><b>TOTAL CONVERSION RATE</b></span>
+
+                <div class="h1 font-thin h1">
+                  <span>{{conversionRate | number:0}}%</span>
+
+                </div>
+
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / stats -->
+      <div class="panel panel-default" style="margin-bottom: 5px">
+
+        <div class="panel-heading panel-bg-color wight-color font-bold">
+          <span>GRAPH COMPARISON</span>
+        </div>
+        <div class="panel-body">
+          <div  style="margin: 6px 5px;">
+              <span style="padding-left: 2px;">
+
+              <select class="input-sm form-control w-sm inline v-middle"
+                      data-ng-init="compareDrpDwnSltdOptn='Gas Stations'" data-ng-model="compareDrpDwnSltdOptn"
+                      data-ng-change="onCompareDrpDwnChange()">
+                <option>Gas Stations</option>
+                <option>Convenience Stores</option>
+              </select>
+              </span>
+
+              <div style="display: inline-block;" class="dropdown">
+                <button class="btn btn-md btn-primary dropdown-toggle"
+                        style="background:#fff;color:#000 !important;text-align:left;width:158px;border:1px solid #cfdadd;padding:4px 12px"
+                        type="button" data-toggle="dropdown">
+                  Select
+                  <span class="caret" style="right: 8px;position: absolute;top: 13px;"></span>
+                </button>
+
+                <ul class="dropdown-menu" role="menu">
+                  <li data-ng-repeat="grphOtnObj in graphFlterOtnData">
+                    <input type="checkbox" style="margin: 2px 5px;" data-ng-model="grphOtnObj.isSelected">
+                    {{grphOtnObj.title}}
+                  </li>
+                  <li>
+                    <!--<button type="button" ng-click="onFilterGraphHandler()" class="btn btn-sm btn-info pull-right"
+                            style="margin-right:5px;padding:0px 5px;">
+                      Done
+                    </button>-->
+                  </li>
+                </ul>
+              </div>
+
+            <button class="btn wight-color panel-bg-color font-bold" style="margin-right:65px" ng-click="onFilterGraphHandler()">COMPARE</button>
+            <select class="input-sm form-control w-sm inline v-middle" data-ng-init="graphTypeObj='Area'"
+                    data-ng-model="graphTypeObj" data-ng-change="onChangeGraphType()">
+              <option>Area</option>
+              <option>Bar</option>
+              <option>Line</option>
+            </select>
+            <select class="input-sm form-control w-sm inline v-middle" data-ng-init="graphInterval='Year'"
+                    data-ng-model="graphInterval" data-ng-change="onFilterGraphHandler()">
+              <option>Week</option>
+              <option>Month</option>
+              <option>Year</option>
+            </select>
+
+          </div>
+        </div>
+
+      </div>
+      <div style="background: #fff;padding-top: 15px;margin-bottom: 10px">
+      <highchart id="chartContainer" config="chartConfigObj" style="height:300px">
+      </highchart>
+      </div>
+      <div class="panel panel-default" data-ng-if="tableHeadData.length>0 && tableData.length>0">
+        <div class="pull-right">
+          <a href="" class="btn btn-lg btn-info" style="padding: 4px 5px;margin: 5px;"
+             ng-click="$event.stopPropagation();$event.preventDefault();"
+             ng-csv="getTableCSVDataExport()"
+             filename="report.csv"
+             csv-header="getTableCSVHeader()">
+            <span>
+              EXPORT
+              <img src="img/export_icon.png" alt="exportIcon">
+            </span>
+          </a>
+
+        </div>
+        <div class="panel-heading panel-bg-color wight-color font-bold" style="padding: 11px 15px">
+          TABLE COMPARISON
+        </div>
+
+        <div class="table-responsive" style="overflow-x: visible;">
+          <table class="table table-striped table-striped-cust b-t b-light">
+            <thead>
+            <tr>
+              <th>Date</th>
+              <th data-ng-repeat="tableHeadObj in tableHeadData">
+                {{tableHeadObj }}
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="tableDataObj in tableData">
+              <td data-ng-if="tableDataObj.date">{{tableDataObj.date}}</td>
+              <td data-ng-if="tableDataObj[tableDataObj.title[0]]>=0">{{tableDataObj[tableDataObj.title[0]]}}</td>
+              <td data-ng-if="tableDataObj[tableDataObj.title[1]]>=0">{{tableDataObj[tableDataObj.title[1]]}}</td>
+              <td data-ng-if="tableDataObj[tableDataObj.title[2]]>=0">{{tableDataObj[tableDataObj.title[2]]}}</td>
+              <td data-ng-if="tableDataObj[tableDataObj.title[3]]>=0">{{tableDataObj[tableDataObj.title[3]]}}</td>
+              <td data-ng-if="tableDataObj[tableDataObj.title[4]]>=0">{{tableDataObj[tableDataObj.title[4]]}}</td>
+              <td data-ng-if="tableDataObj[tableDataObj.title[5]]>=0">{{tableDataObj[tableDataObj.title[5]]}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- / main -->
+  <!-- right col -->
+  <div class="col w-md bg-white-only b-l bg-auto no-border-xs">
+    <div class="wrapper-md">
+      <h3 style="margin:0px">Top Users</h3>
+      <ul class="list-group no-bg no-borders pull-in">
+        <li class="list-group-item" ng-repeat="topUser in topUsers">
+          <a herf class="pull-left thumb-sm avatar m-r" style="cursor: default;">
+            <img src="img/user.png" alt="..." style="border: 1px solid;" class="img-circle">
+            <i class="on b-white bottom"></i>
+          </a>
+
+          <div class="clear">
+            <div><a href>{{topUser.first_name}}&nbsp;{{topUser.last_name}}</a></div>
+            <small class="text-muted">{{topUser.email}}</small>
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+  <!-- / right col -->
+</div>

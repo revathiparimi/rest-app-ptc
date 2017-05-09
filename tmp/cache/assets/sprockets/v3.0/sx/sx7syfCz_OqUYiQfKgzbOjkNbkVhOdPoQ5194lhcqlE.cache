@@ -1,0 +1,37 @@
+I"(function() {
+  jQuery(function() {
+    return $('#users').dataTable({
+      "pagingType": "full_numbers",
+      "bJQueryUI": true,
+      bProcessing: true,
+      bServerSide: true,
+      bLengthChange: false,
+      bInfo: true,
+      "iDisplayLength": 8,
+      "columns": [
+        {
+          "name": "first",
+          "orderable": "true"
+        }, {
+          "name": "second",
+          "orderable": "true"
+        }, {
+          "name": "third",
+          "orderable": "true"
+        }, {
+          "name": "fourth",
+          "orderable": "true"
+        }, {
+          "name": "fifth",
+          "orderable": 'false'
+        }, {
+          "name": "sixth",
+          "orderable": "false"
+        }
+      ],
+      sAjaxSource: $('#users').data('source')
+    });
+  });
+
+}).call(this);
+:ET

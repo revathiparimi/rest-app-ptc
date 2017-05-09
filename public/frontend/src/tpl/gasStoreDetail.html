@@ -1,0 +1,105 @@
+<div  class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false;
+    app.settings.asideDock = false;
+  ">
+  <!-- main -->
+   <!-- main header -->
+    <div ui-butterbar></div>
+    <div class="bg-light lter wrapper-md">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <h1 class="m-n h3 text-black">GAS STATION MANAGEMENT</h1>
+          <small class="text-muted text-sm">Cteate/View Your Gas Station and Convenience Store</small>
+        </div>
+
+      </div>
+      </div>
+      <div class="container">
+      <div class="row m-t-b-10">
+        <div class="col-md-12">
+        <button type="button"  class="btn btn-md btn-info pull-right" ng-click="createStation()" ng-disabled="gasStoresList.length>=3">CREATE</button>
+        </div>
+      </div>
+      </div>
+  <div class="container">
+      <div class="row" ng-if="gasStoresList.length<=0">
+        <div class="col-md-12 text-center">
+        <img src="img/mainscreen_bg.png" height="400px" alt="mainscreen_bg">
+        <div style="position: absolute;top:100px" >
+            <h2 class="col-md-12 text-center text-color-red m-0">Oops!</h2>
+            <h2 class="col-md-12 text-center m-0" style="color: #000;">Gas Stations are not yet created!</h2>
+            <h2 class="col-md-12 text-center m-0" style="color: #000;">Click on 'CREATE' button to create your Gas Stations</h2>
+        </div>
+          </div>
+          </div>
+  </div>
+  <!--data-cg-busy="{promise: loadingPromise, message: 'loading...'}"-->
+        <div class="container" cg-busy="{promise:myPromise,message:'Refuelling'}">
+          <div class="row">
+            <div class="col-md-4" ng-repeat="gas in gasStoresList track by $index">
+
+              <div class="panel b-a">
+                <div class="panel-heading no-border bg-success">
+                  <span class="text-lt">{{gas.title}} Filling Station</span>
+                </div>
+                <div class="item m-l-n-xxs m-r-n-xxs">
+
+                  <!--{{gas.image.thumb.url}}-->
+                  <img src="{{gas.image.url}}" style="min-width: 360px;min-height: 202px;max-width: 360px;max-height: 202px;" class="img-full">
+                </div>
+                <div class="p-5">
+                  <h4>Welcome to {{gas.title}} Filling Station</h4>
+                  <div style="min-height:90px"><p style="word-wrap: break-word;">{{gas.description}}</p></div>
+                  <p class="text-right m-0">
+                  <i class="fa fa-times text-danger text" style="cursor: pointer;" ng-click="deleteGasStation(gas.id.$oid,gas.title, $index)" ></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+    <!-- / main header -->
+  <!--  <div class="wrapper-md">
+
+     <div class="panel panel-default">
+
+        <div class="panel-heading font-bold">Gas Station Details</div>
+          <div class="panel-body">
+          <p class="text-center">Click below to create Gas Station </p>
+
+            <div class="col-md-offset-3 col-sm-6" >
+                  <div class="panel panel-default" style="margin:auto;">
+
+                    <div class="panel-heading text-center">
+                     <b>Gas Station List</b>
+                    </div>
+                     <table class="table table-striped m-b-none">
+                      <thead>
+                        <tr>
+                          <th >Id</th>
+                          <th>Title</th>
+                          <th>Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="gas in gasStoresList | limitTo: 3">
+                          <td>{{gas.id.$oid}}</td>
+                          <td>{{gas.title}}</td>
+                          <td><i class="fa fa-times text-danger text" ng-click="deleteGasStation(gas.id.$oid,gas.title)" confirm="Are you sure, {{}}?"></i></td>
+                        </tr>
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+          </div>
+
+      </div>
+
+  </div>-->
+    <!-- / main -->
+
+</div>

@@ -1,0 +1,91 @@
+<div cg-busy="{promise:myPromise,message:'Refuelling'}">
+<div class="modal-header panel-bg-color h-model-p" style="padding: 10px 15px" >
+    <i class="fa fa-times wight-color text pull-right hand-cursor" ng-click="cancel()"></i>
+    <h4 class="modal-title wight-color font-bold">CREATE CONVENIENCE STORE</h4>
+</div>
+<div class="modal-body" >
+        <!-- <p class="text-center">Create Convenience Store</p> -->
+          <form class="bs-example form-horizontal" name="storeform">
+              <div class="form-group">
+              <div class="col-lg-12">
+                <label class="col-lg-3 control-label text-left">Store Name<span style="color:#e32028;padding-left: 2px">*</span></label>
+                <div class="col-lg-8">
+                  <input type="text" class="form-control" placeholder="Title" required ng-model="convinience.title">
+                </div>
+                </div>
+              </div>
+              <div class="form-group">
+              <div class="col-lg-12">
+                <label class="col-lg-3 control-label text-left">Short Description<span style="color:#e32028;padding-left: 2px">*</span></label>
+                <div class="col-lg-8">
+                  <input type="text" class="form-control" placeholder="Short Description" required ng-model="convinience.short_description">
+                </div>
+              </div>
+              </div>
+              <div class="form-group">
+              <div class="col-lg-12">
+                <label class="col-lg-3 control-label text-left">Long Description<span style="color:#e32028;padding-left: 2px">*</span></label>
+                <div class="col-lg-8">
+                  <textarea class="form-control" rows="4" placeholder="Long Description" required id="comment" maxlength="200" ng-model="convinience.long_description" style="resize: none;">
+
+                  </textarea>
+                </div>
+              </div>
+              </div>
+              <div class="form-group">
+                <div class="col-lg-12">
+                  <label class="col-lg-3 control-label text-left">Upload Picture<span style="color:#e32028;padding-left: 2px">*</span></label>
+                  <div class="col-lg-8">
+                  <div style="border: 2px dashed;padding: 5px;">
+                    <div ngf-drop ngf-select="upload()" ng-model="files" class="drop-box"
+                         ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+                         accept="image/*"
+                         ngf-pattern="'image/*'">
+                      Click here to upload
+                    </div>
+                    <div ngf-no-file-drop>
+                      File Drag/Drop is not supported for this browser
+                    </div>
+
+                    <ul style="list-style:none;">
+                      <li ng-repeat="f in files" style="font:smaller" >{{f.name}} {{f.$error}} {{f.$errorParam}}
+                        <div style="position: relative">
+                          <img ngf-src="f"  class="thumb" style="width:277px">
+                          <img src="img/close_icon.png" alt="delIcon" class="hand-cursor" style="position: absolute;right: 10px;top: -7px;" ng-click="deleteImg()">
+
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+              <div class="col-lg-12">
+                <label class="col-lg-3 control-label text-left">Beacons<span style="color:#e32028;padding-left: 2px">*</span></label>
+                <div class="col-lg-8">
+                  <button type="button" data-ng-if="!selectedBecon.id.$oid" ng-click="open1('md')" class="btn btn-md btn-info">ADD BEACON</button>
+                  <div style="border:1px solid #d9d9d9" data-ng-if="selectedBecon.id.$oid">
+                    <img src="img/beacon_icon.png" alt="beconicon">
+                    <span>{{selectedBecon.name?selectedBecon.name:"No Name"}}</span>
+                    <img src="img/close_icon.png" alt="delIcon" style="position: absolute;right: 10px;top: -7px;" class="hand-cursor" ng-click="deleteBecon()">
+
+                  </div>
+
+
+                </div>
+                </div>
+              </div>
+            </div>
+          </form>
+  <div class="modal-footer model-footer-style" >
+    <div class="text-center">
+      <button type="button"  class="btn btn-md wight-color btn-defalut-cust font-bold p-btn-rl m-lr-30" data-ng-click="cancel();">CANCEL</button>
+      <button class="btn btn-danger wight-color font-bold p-btn-rl" ng-click="ok()" ng-disabled="((storeform.$invalid) || !selectedBecon.id.$oid || !files)">CREATE</button>
+      <!--<button class="btn btn-default" ng-click="cancel()">Cancel</button>-->
+    </div>
+  </div>
+
+</div>
+
+

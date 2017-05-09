@@ -1,0 +1,22 @@
+I"´(function() {
+  jQuery(function() {
+    return $('#users').dataTable({
+      "pagingType": "full_numbers",
+      "bJQueryUI": true,
+      bProcessing: true,
+      bServerSide: true,
+      bLengthChange: false,
+      bInfo: true,
+      "iDisplayLength": 8,
+      "columnDefs": [
+        {
+          "orderable": false,
+          "targets": 0
+        }
+      ],
+      sAjaxSource: $('#users').data('source')
+    });
+  });
+
+}).call(this);
+:ET

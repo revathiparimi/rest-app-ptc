@@ -1,0 +1,24 @@
+en:
+  nexge:
+    voucher_errors:
+        "600": "Invalid Voucher."
+        "601": "Invalid pin Request."
+        "602": "Voucher has been used."
+        "603": "Voucher has been expired."
+        "604": "Unsuccessfully recharge."
+    balance_transfer:
+        "605": "Amount has been transferred successfully."
+        "606": "Transfer Amount is greater than Subscriber Balance."
+        "607": "Sender has Insufficient balance."
+        "608": "Check wheather Both Subscriber has Master Pin."
+        "609": "Sender not belongs to admin."
+        "610": "Receiver not belongs to admin."
+        "611": "SubscriberId Deactivated. You Are Not Allowed To Transfer"
+        "612": "Failed To Transfer the Amount"
+        "613": "Invalid nexge userids."
+        "614": "Balance transfer failed"
+  pop_ups:
+    redirect_to:
+        None: None
+        AddFriends: Add Friends
+        AddBalance: Add Balance

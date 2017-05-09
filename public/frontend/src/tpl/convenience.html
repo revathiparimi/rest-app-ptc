@@ -1,0 +1,82 @@
+<div  class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false;
+    app.settings.asideDock = false;
+  ">
+  <!-- main -->
+   <!-- main header -->
+    <div ui-butterbar></div>
+    <div class="bg-light lter b-b wrapper-md">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <h1 class="m-n h3 text-black">GAS STATION MANAGEMENT</h1>
+          <small class="text-muted text-sm">Cteate/View Your Gas Station and Convenience Store</small>
+
+        </div>
+
+      </div>
+    </div>
+    <!-- / main header -->
+  <div class="wrapper-md">
+
+     <div class="panel panel-default">
+
+        <div class="panel-heading font-bold panel-bg-color wight-color">CONVENIENCE STORE</div>
+       <h4 class="text-center color-green b-b font-bold" style="padding-bottom: 20px;margin-bottom: 0px;">{{gasStationNameTitle}}</h4>
+          <div class="panel-body" style="padding-top: 0px">
+
+            <h5 class="font-bold" style="line-height: 40px;">Select the Convenience Stores from the below list or Create New
+              <div class="font-bold pull-right">
+                <button type="button" ng-click="openCreate('md')" class="btn btn-sm btn-info font-bold">CREATE</button>
+              </div>
+            </h5>
+            <div class="col-sm-6 p-0" >
+
+
+
+                     <table class="table table-striped table-striped-cust m-b-none">
+                      <thead>
+                        <tr class="panel-info">
+                          <th>SELECT</th>
+                          <th>STORE NAME</th>
+                          <th>Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="store in storeList">
+                          <td>
+                            <div class="checkbox" style="margin: 0px;">
+                              <label class="i-checks">
+                                <input type="checkbox" data-ng-model="store.checkedObject" data-ng-click="checkedStores(store.checkedObject, store);">
+                                <i></i>
+                              </label>
+                            </div>
+                          </td>
+                          <!--<td>{{store.id.$oid}}</td>-->
+                          <td>{{store.title}}</td>
+                          <td>
+                            <i class="fa fa-times text-danger text hand-cursor" ng-click="deleteStores(store.id.$oid,store.title,$index)"></i>
+                          </td>
+                        </tr>
+
+
+                      </tbody>
+                    </table>
+
+            </div>
+            <div class="col-md-6">
+              <div style="padding: 10px 25px">
+                <img src="img/store_icon.png" class="img-responsive" alt="store_icon">
+              </div>
+            </div>
+
+          </div>
+          <div class="text-center" style="margin-bottom:15px;">
+            <button type="button" class="btn btn-md wight-color btn-defalut-cust font-bold p-btn-rl m-lr-30" data-ng-click="cancelScreen();">CANCEL</button>
+            <button type="button" class="btn btn-md btn-danger font-bold p-btn-rl m-lr-30" data-ng-click="link();" data-ng-disabled="!(checkedStoresArray.length>0)">SUBMIT</button>
+          </div>
+      </div>
+
+  </div>
+  <!-- / main -->
+
+</div>

@@ -1,0 +1,62 @@
+2017-04-25T10:19:21.937Z 14450 TID-ov6fyi0i4 INFO: Running in ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
+2017-04-25T10:19:21.937Z 14450 TID-ov6fyi0i4 INFO: See LICENSE and the LGPL-3.0 for licensing details.
+2017-04-25T10:19:21.937Z 14450 TID-ov6fyi0i4 INFO: Upgrade to Sidekiq Pro for more features and support: http://sidekiq.org
+2017-04-25T10:19:21.937Z 14450 TID-ov6fyi0i4 INFO: Booting Sidekiq 4.2.6 with redis options {:url=>nil}
+2017-04-25T10:19:21.991Z 14450 TID-ov6fyi0i4 INFO: Loading Schedule
+2017-04-25T10:19:21.991Z 14450 TID-ov6fyi0i4 INFO: Scheduling tasks_worker {"cron"=>"0 * * * * *", "class"=>"TasksWorker", "queue"=>"default"}
+2017-04-25T10:19:22.009Z 14450 TID-ov6fyi0i4 INFO: Schedules Loaded
+2017-04-25T10:20:00.132Z 14450 TID-ov6fzdqhs INFO: queueing TasksWorker (tasks_worker)
+2017-04-25T10:20:00.155Z 14450 TID-ov6g1iqt4 TasksWorker JID-686029e549e8c0e874a48b5f INFO: start
+Hello world
+2017-04-25T10:20:00.156Z 14450 TID-ov6g1iqt4 TasksWorker JID-686029e549e8c0e874a48b5f INFO: done: 0.001 sec
+2017-04-25T10:21:00.192Z 14450 TID-ov6fzdqhs INFO: queueing TasksWorker (tasks_worker)
+2017-04-25T10:21:00.195Z 14450 TID-ov6g2h57c TasksWorker JID-a24e3bdde3d889bfa60077df INFO: start
+Hello world
+2017-04-25T10:21:00.196Z 14450 TID-ov6g2h57c TasksWorker JID-a24e3bdde3d889bfa60077df INFO: done: 0.001 sec
+2017-04-25T10:22:00.252Z 14450 TID-ov6fzdqhs INFO: queueing TasksWorker (tasks_worker)
+2017-04-25T10:22:00.254Z 14450 TID-ov6g2h6us TasksWorker JID-850abc914541370e1f576f39 INFO: start
+Hello world
+2017-04-25T10:22:00.255Z 14450 TID-ov6g2h6us TasksWorker JID-850abc914541370e1f576f39 INFO: done: 0.001 sec
+2017-04-25T10:23:00.010Z 14450 TID-ov6fzdqhs INFO: queueing TasksWorker (tasks_worker)
+2017-04-25T10:23:00.012Z 14450 TID-ov6g2h64o TasksWorker JID-7385e59d09c2208ceb1022c4 INFO: start
+Hello world
+2017-04-25T10:23:00.012Z 14450 TID-ov6g2h64o TasksWorker JID-7385e59d09c2208ceb1022c4 INFO: done: 0.0 sec
+2017-04-25T10:24:00.076Z 14450 TID-ov6fzdqhs INFO: queueing TasksWorker (tasks_worker)
+2017-04-25T10:24:00.078Z 14450 TID-ov6g1iqt4 TasksWorker JID-41131faae0bfaedbefd9c06f INFO: start
+Hello world
+2017-04-25T10:24:00.079Z 14450 TID-ov6g1iqt4 TasksWorker JID-41131faae0bfaedbefd9c06f INFO: done: 0.001 sec
+2017-04-25T10:25:00.137Z 14450 TID-ov6fzdqhs INFO: queueing TasksWorker (tasks_worker)
+2017-04-25T10:25:00.139Z 14450 TID-ov6g2h5dg TasksWorker JID-7e48729c08a60a016c0f4b14 INFO: start
+Hello world
+2017-04-25T10:25:00.140Z 14450 TID-ov6g2h5dg TasksWorker JID-7e48729c08a60a016c0f4b14 INFO: done: 0.001 sec
+2017-04-25T10:26:00.202Z 14450 TID-ov6fzdqhs INFO: queueing TasksWorker (tasks_worker)
+2017-04-25T10:26:00.203Z 14450 TID-ov6g2h5qs TasksWorker JID-84f21a572199beb92e7cecb4 INFO: start
+Hello world
+2017-04-25T10:26:00.203Z 14450 TID-ov6g2h5qs TasksWorker JID-84f21a572199beb92e7cecb4 INFO: done: 0.0 sec
+2017-04-25T10:27:00.261Z 14450 TID-ov6fzdqhs INFO: queueing TasksWorker (tasks_worker)
+2017-04-25T10:27:00.263Z 14450 TID-ov6g2h6ik TasksWorker JID-375c04bc5bbc65adb5e8fc21 INFO: start
+Hello world
+2017-04-25T10:27:00.264Z 14450 TID-ov6g2h6ik TasksWorker JID-375c04bc5bbc65adb5e8fc21 INFO: done: 0.001 sec
+2017-04-25T10:30:57.506Z 15155 TID-ov0o2vifk INFO: Running in ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
+2017-04-25T10:30:57.507Z 15155 TID-ov0o2vifk INFO: See LICENSE and the LGPL-3.0 for licensing details.
+2017-04-25T10:30:57.507Z 15155 TID-ov0o2vifk INFO: Upgrade to Sidekiq Pro for more features and support: http://sidekiq.org
+2017-04-25T10:30:57.507Z 15155 TID-ov0o2vifk INFO: Booting Sidekiq 4.2.6 with redis options {:url=>nil}
+2017-04-25T10:30:57.517Z 15155 TID-ov0o2vifk INFO: Loading Schedule
+2017-04-25T10:30:57.517Z 15155 TID-ov0o2vifk INFO: Scheduling tasks_worker {"cron"=>"0 * * * * *", "class"=>"TasksWorker", "queue"=>"default"}
+2017-04-25T10:30:57.518Z 15155 TID-ov0o2vifk INFO: Schedules Loaded
+2017-04-25T10:31:00.221Z 15155 TID-ov0o6mki0 INFO: queueing TasksWorker (tasks_worker)
+2017-04-25T10:31:00.222Z 15155 TID-ov0o5w6s0 TasksWorker JID-344e51dfb12d3ded77b471c4 INFO: start
+Hello world
+2017-04-25T10:31:00.223Z 15155 TID-ov0o5w6s0 TasksWorker JID-344e51dfb12d3ded77b471c4 INFO: done: 0.001 sec
+2017-04-25T10:32:00.280Z 15155 TID-ov0o6mki0 INFO: queueing TasksWorker (tasks_worker)
+2017-04-25T10:32:00.282Z 15155 TID-ov0o5w8d8 TasksWorker JID-00e768148c82e1c2dbecd2bd INFO: start
+Hello world
+2017-04-25T10:32:00.283Z 15155 TID-ov0o5w8d8 TasksWorker JID-00e768148c82e1c2dbecd2bd INFO: done: 0.001 sec
+2017-04-25T10:33:00.034Z 15155 TID-ov0o6mki0 INFO: queueing TasksWorker (tasks_worker)
+2017-04-25T10:33:00.034Z 15155 TID-ov0o5w8d8 TasksWorker JID-d760b125900e7641c1100283 INFO: start
+Hello world
+2017-04-25T10:33:00.035Z 15155 TID-ov0o5w8d8 TasksWorker JID-d760b125900e7641c1100283 INFO: done: 0.0 sec
+2017-04-25T10:34:00.079Z 15155 TID-ov0o6mki0 INFO: queueing TasksWorker (tasks_worker)
+2017-04-25T10:34:00.081Z 15155 TID-ov0o5w8d8 TasksWorker JID-ee14d60df7913d81c35c344d INFO: start
+Hello world
+2017-04-25T10:34:00.082Z 15155 TID-ov0o5w8d8 TasksWorker JID-ee14d60df7913d81c35c344d INFO: done: 0.001 sec

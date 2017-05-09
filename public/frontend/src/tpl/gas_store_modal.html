@@ -1,0 +1,34 @@
+<div class="modal-header panel-bg-color h-model-p wight-color" style="padding: 10px 15px">
+  <i class="fa fa-times wight-color text pull-right hand-cursor" ng-click="cancelBecon()"></i>
+    <h4 class="modal-title">ADD BEACON</h4>
+</div>
+<div class="modal-body">
+         <table class="table table-striped table-striped-cust m-b-none">
+                      <thead>
+                        <tr>
+                          <th>SELECT</th>
+                          <th >BEACON ID</th>
+                          <th>BEACON NAME</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="becon in beconsList">
+                          <td>
+                            <div class="radio" style="padding:0px;margin: 0px;">
+                            <label class="i-checks">
+                              <input type="radio" name="a"  ng-click="onClick(becon,$index)" >
+                              <i></i>
+
+                            </label>
+                          </div></td>
+                          <td>{{becon.id.$oid}}</td>
+                          <td>{{becon.name}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+</div>
+<div class="modal-footer model-footer-style">
+
+    <button type="button" class="btn btn-md wight-color btn-defalut-cust font-bold p-btn-rl m-lr-30" data-ng-click="cancelBecon();">CANCEL</button>
+    <button class="btn btn-danger wight-color font-bold p-btn-rl" ng-click="ok()" data-ng-disabled="!selectedBecon">OK</button>
+</div>

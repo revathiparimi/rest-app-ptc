@@ -1,0 +1,4 @@
+# :schedule:
+#   tasks_worker:
+#      every: '1h'   # Runs every 1 hour
+#     class: TasksWorker

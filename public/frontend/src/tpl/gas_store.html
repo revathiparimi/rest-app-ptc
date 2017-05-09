@@ -1,0 +1,109 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false;
+    app.settings.asideDock = false;
+  ">
+  <!-- main -->
+   <!-- main header -->
+    <div ui-butterbar></div>
+    <div class="bg-light lter wrapper-md">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <h1 class="m-n h3 text-black">GAS STATION MANAGEMENT</h1>
+          <small class="text-muted text-sm">Cteate/View Your Gas Station and Convenience Store</small>
+        </div>
+
+      </div>
+    </div>
+    <!-- / main header -->
+  <div class="wrapper-md">
+
+     <div class="panel panel-default" cg-busy="{promise:myPromise,message:'Refuelling'}">
+        <div class="panel-heading font-bold panel-bg-color wight-color">CREATE A GAS STATION</div>
+        <div class="panel-body">
+          <form class="bs-example form-horizontal" novalidate name="gasStoreForm">
+            <div class="col-md-12">
+              <div class="col-md-8">
+                <div class="form-group">
+                <div class="col-lg-9">
+                  <label class="col-lg-4 control-label text-left">Store Name<span style="color:#e32028;padding-left: 2px">*</span></label>
+                  <div class="col-lg-8">
+                    <input type="text" class="form-control" ng-model="gasStore.title" placeholder="Title" required>
+                  </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                <div class="col-lg-9">
+                  <label class="col-lg-4 control-label text-left">Description<span style="color:#e32028;padding-left: 2px">*</span></label>
+                  <div class="col-lg-8">
+                    <textarea class="form-control" rows="4" maxlength="200" placeholder="Description" id="comment" required ng-model="gasStore.description" style="resize: none;">
+
+                    </textarea>
+
+                  </div>
+                </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-9">
+                    <label class="col-lg-4 control-label text-left">Upload Picture<span style="color:#e32028;padding-left: 2px">*</span></label>
+                    <div class="col-lg-8">
+                    <div style="border: 2px dashed;padding: 5px;">
+                      <div ngf-drop ngf-select ng-model="files" class="drop-box"
+                           ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+                           accept="image/*"
+                           ngf-pattern="'image/*'">
+                        Click here to upload
+                      </div>
+                      <div ngf-no-file-drop>
+                        File Drag/Drop is not supported for this browser
+                      </div>
+
+                      <ul style="list-style:none;">
+                        <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}
+                        <div style="position: relative">
+                          <img ngf-src="f"  class="thumb" style="width:230px">
+                          <img src="img/close_icon.png" class="hand-cursor" alt="delIcon" style="position: absolute;right: 10px;top: -7px;" ng-click="deleteImg()">
+
+                        </div>
+                        </li>
+                      </ul>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                <div class="col-lg-9">
+                  <label class="col-lg-4 control-label text-left">Beacon<span style="color:#e32028;padding-left: 2px">*</span></label>
+                  <div class="col-lg-8">
+
+                    <button type="button" data-ng-if="!selected.id.$oid" ng-click="open1('md')" class="btn btn-md panel-bg-color wight-color">ADD BEACON</button>
+                    <div style="border:1px solid #d9d9d9" data-ng-if="selected.id.$oid">
+                      <img src="img/beacon_icon.png" alt="beconicon">
+                      <span>{{selected.name}}</span>
+                      <img src="img/close_icon.png" alt="delIcon" class="hand-cursor" style="position: absolute;right: 10px;top: -7px;" ng-click="deleteBecon()">
+
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div>
+                  <img src="img/gasstation_icon.png" class="img-responsive" alt="gasstation_icon">
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="button" ng-click="creategasstore()" class="btn btn-md btn-danger p-btn-rl" ng-disabled="((gasStoreForm.$invalid) || !selected.id.$oid || !files)">CREATE</button>
+            </div>
+
+            </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+  </div>
+  <!-- / main -->
+
+</div>
