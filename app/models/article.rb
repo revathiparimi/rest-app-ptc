@@ -9,12 +9,13 @@ class Article
   field :updated, type: Time
   field :url_id, type: String
   field :generated_url, type: String
+  field :data, :type => Hash
 
   field :follower_ids, type: Array, default: []
   #mount_uploader :image, ImageUploader
   
-  validates :url, presence: true
-  validates :url, uniqueness: true
+  #validates :url, presence: true
+  #validates :url, uniqueness: true
 
   
   

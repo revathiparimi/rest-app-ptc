@@ -4,7 +4,8 @@ class ArticlesController < BaseApiController
   require 'will_paginate/array'
 
   def index
-    @articles = Article.all.order('updated_at DESC').paginate(:page => params[:page], :per_page => params[:limit])
+    @articles  = Article.all
+    #@articles = Article.all.order('updated_at DESC').paginate(:page => params[:page], :per_page => params[:limit])
     respond_with json: @articles
   end
 
