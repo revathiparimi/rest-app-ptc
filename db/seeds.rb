@@ -28,7 +28,7 @@
 # 	User.create(:first_name => "user",:last_name => "user",:email => "user@email.com", :password => "ZXasqw12", :password_confirmation => "ZXasqw12", :phone_no => '7207535681', :otp => '123456')
 # end
 
-article = Article.create(:title => "TechPack" :data =>
+article = Article.create(:title => "TechPack",:data =>
 	{
     "adprint": {
         "seasonName": "adidas Spring/Summer 2016",
