@@ -66,6 +66,10 @@ Rails.application.routes.draw do
     root to: "feeds#index"
   end
 
+  namespace :basic do
+    resources :articles
+  end
+
   namespace :api do
     resources :otp do
       member do
