@@ -70,6 +70,10 @@ Rails.application.routes.draw do
     resources :articles
   end
 
+  namespace :noauth do
+    resources :articles
+  end
+
   namespace :api do
     resources :otp do
       member do
