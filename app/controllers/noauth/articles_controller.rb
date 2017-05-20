@@ -1,6 +1,6 @@
 module Noauth
 class ArticlesController < BaseController
-  before_action :set_article, only: [:show, :update, :destroy,:like,:unlike,:follow,:unfollow]
+  before_action :set_article, only: [:show, :update, :destroy]
   require 'will_paginate/array'
 
   def index
@@ -22,7 +22,21 @@ class ArticlesController < BaseController
   
 
   def create
-   
+    if params[:article][:data]!=nil
+      @article = Article.new(:data=>YAML::load(params[:article][:data]))
+    else
+      @article = Article.new(:data=>YAML::load(request.body.read))
+    end
+
+    respond_to do |format|
+      if @article.save
+        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.json { render :show, status: :created, location: @article }
+      else
+        format.html { render :new }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
 
@@ -44,7 +58,7 @@ class ArticlesController < BaseController
     end
 
     def article_params
-      params.require(:article).permit(:name,:url)
+      params.require(:article).permit(:title,:data)
     end
 
 end

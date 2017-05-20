@@ -22,7 +22,21 @@ class ArticlesController < BaseApiController
   
 
   def create
-   
+    if params[:article][:data]!=nil
+      @article = Article.new(:data=>YAML::load(params[:article][:data]))
+    else
+      @article = Article.new(:data=>YAML::load(request.body.read))
+    end
+
+    respond_to do |format|
+      if @article.save
+        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.json { render :show, status: :created, location: @article }
+      else
+        format.html { render :new }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
 
