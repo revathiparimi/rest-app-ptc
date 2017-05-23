@@ -16,15 +16,15 @@ Rails.application.routes.draw do
       end
   end
 
-  devise_scope :admin do
-    authenticated :admin do
-      root 'yoadmin/feeds#index', as: :authenticated_root
-    end
+  # devise_scope :admin do
+  #   authenticated :admin do
+  #     root 'yoadmin/feeds#index', as: :authenticated_root
+  #   end
 
-    unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
-    end
-  end
+  #   unauthenticated do
+  #     root 'devise/sessions#new', as: :unauthenticated_root
+  #   end
+  # end
   #mount Bhf::Engine, at: 'bhf'
 
   use_doorkeeper do
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   #get 'admin', to: 'admin#login', as: :admin
 
   
-  #root to: "admin#index"
+  root to: "articles#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   namespace :yoadmin do

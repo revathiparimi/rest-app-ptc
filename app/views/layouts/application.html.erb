@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>rest app ptc</title>
-    <%= favicon_link_tag 'redlogo2.ico' %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
 
@@ -13,6 +12,6 @@
     <script src="toastr.js"></script>
 </head>
   <body>
-  
+  <%= render partial: "layouts/before_login"%> 
   </body>
 </html>
