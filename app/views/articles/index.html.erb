@@ -14,11 +14,11 @@ end
 <%for i in  arr do %>
 
 <div class="row">
-  <div class="col-sm-4" style="background-color: #4ad4ad; border-color: #333;height: 20rem;">
+  <div class="col-sm-4" style="background-color: #4ad4ad; border-color: #333;height: 20rem;width: 40rem;">
     <div class="card">
       <div class="card-block">
         <h3 class="card-title"><%= @articles[i].title %></h3>
-        <p class="card-text"><%= @articles[i].data.to_s[0...250] %></p>
+        <p class="card-text"><%= @articles[i].data.to_s[0...230] %></p>
         <div style="display:inline !important;"><%= link_to 'Show', article_path(@articles[i]), class: "btn btn-info" ,:style=> 'display:inline !important;'%>
         <%= link_to 'Destroy', article_path(@articles[i]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" ,:style=> 'display:inline !important;'%></div>
       </div>
@@ -26,11 +26,11 @@ end
   </div>
   <%i=i+1%>
   <%if @articles[i]!=nil%>
-  <div class="col-sm-4 col-sm-offset-1" style="background-color: #4ad4ad; border-color: #333;height: 20rem;">
+  <div class="col-sm-4 col-sm-offset-1" style="background-color: #4ad4ad; border-color: #333;height: 20rem;width: 40rem;">
     <div class="card">
       <div class="card-block">
         <h3 class="card-title"><%= @articles[i].title %></h3>
-        <p class="card-text"><%= @articles[i].data.to_s[0...300] %></p>
+        <p class="card-text"><%= @articles[i].data.to_s[0...230] %></p>
         <div style="display:inline !important;"><%= link_to 'Show', article_path(@articles[i]), class: "btn btn-info",:style=> 'display:inline !important;' %>
         <%= link_to 'Destroy', article_path(@articles[i]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" ,:style=> 'display:inline !important;'%></div>
       </div>
