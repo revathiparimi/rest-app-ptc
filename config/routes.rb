@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  resources :schemas
   #require 'sidekiq/web'
   #mount Sidekiq::Web => '/sidekiq'
 
