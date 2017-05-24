@@ -1,28 +1,46 @@
 <!-- <p id="notice"><%#= notice %></p> -->
 
-<h1>CDEE Articles<%#= link_to 'New Article', new_yoadmin_article_path, class: "btn btn-success pull-right" %></h1>
+<h1>CDEE DATA<%#= link_to 'New Article', new_yoadmin_article_path, class: "btn btn-success pull-right" %></h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%arr = []
+i=0
+@articles.each do |article|
+  arr[i]=i
+  i=i+1
+end
+#arr.delete(i-1)
+%>
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.data %></td>
-        <td><%= link_to 'Show', article_path(article), class: "btn btn-info" %></td>
-        <td><%#= link_to 'Edit', edit_article_path(article), class: "btn btn-warning" %></td>
-        <td><%= button_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%for i in  arr do %>
+
+<div class="row">
+  <div class="col-sm-4" style="background-color: #4ad4ad; border-color: #333;height: 20rem;">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title"><%= @articles[i].title %></h3>
+        <p class="card-text"><%= @articles[i].data.to_s[0...250] %></p>
+        <div style="display:inline !important;"><%= link_to 'Show', article_path(@articles[i]), class: "btn btn-info" ,:style=> 'display:inline !important;'%>
+        <%= link_to 'Destroy', article_path(@articles[i]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" ,:style=> 'display:inline !important;'%></div>
+      </div>
+    </div>
+  </div>
+  <%i=i+1%>
+  <%if @articles[i]!=nil%>
+  <div class="col-sm-4 col-sm-offset-1" style="background-color: #4ad4ad; border-color: #333;height: 20rem;">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title"><%= @articles[i].title %></h3>
+        <p class="card-text"><%= @articles[i].data.to_s[0...300] %></p>
+        <div style="display:inline !important;"><%= link_to 'Show', article_path(@articles[i]), class: "btn btn-info",:style=> 'display:inline !important;' %>
+        <%= link_to 'Destroy', article_path(@articles[i]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" ,:style=> 'display:inline !important;'%></div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<br>
+<%arr.delete(i)%>
+<% end %>
 
 <br>
 
