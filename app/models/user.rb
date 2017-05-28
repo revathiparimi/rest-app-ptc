@@ -76,7 +76,7 @@ class User
 
   #mount_uploader :avatar, AvatarUploader
 
-  validates :first_name, format: { with: /\A[a-zA-Z0-9-_ ]+\z/,message: "No special characters are allowed except - and _" }, :allow_nil => true
+  #validates :first_name, format: { with: /\A[a-zA-Z0-9-_ ]+\z/,message: "No special characters are allowed except - and _" }, :allow_nil => true
   
   #validates :phone_no, presence: true
   #validates :attribute, phone_no: { possible: true, allow_blank: true, types: [:voip, :mobile] }

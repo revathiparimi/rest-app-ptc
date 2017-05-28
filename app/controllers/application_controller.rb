@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   respond_to :html, :json
   #before_filter :set_cache_headers
-  before_filter :authenticate_user
+  #before_filter :authenticate_user
 
 
 	require 'faraday'

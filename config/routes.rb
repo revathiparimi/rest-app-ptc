@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   #devise_for :admins
   resources :admins
-  resources :articles
+  #resources :articles
   resources :scheduled_notifications do
     collection do
         post :broadcast
@@ -40,10 +40,10 @@ Rails.application.routes.draw do
   #get 'admin', to: 'admin#login', as: :admin
 
   
-  root to: "articles#index"
+  root to: "admin/articles#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  namespace :yoadmin do
+  namespace :admin do
     resources :articles
     resources :users do
       collection do

@@ -1,4 +1,5 @@
-class ArticlesController < ApplicationController
+module Admin
+class ArticlesController < BaseController
   before_action :set_article, only: [:show,:destroy]
 
   def index
@@ -13,7 +14,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to admin_articles_url, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -24,4 +25,5 @@ class ArticlesController < ApplicationController
       @article = Article.where(:id => params[:id]).first
     end
 
+end
 end

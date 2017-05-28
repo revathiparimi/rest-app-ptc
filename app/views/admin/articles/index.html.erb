@@ -19,8 +19,8 @@ end
       <div class="card-block">
         <h3 class="card-title"><%= @articles[i].title %></h3>
         <p class="card-text"><%= @articles[i].data.to_s[0...200] %></p>
-        <div style="display:inline !important;"><%= link_to 'Show', article_path(@articles[i]), class: "btn btn-info pull-left" ,:style=> 'display:inline !important; margin-bottom:1000;'%>
-        <%= link_to 'Destroy', article_path(@articles[i]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" ,:style=> 'display:inline !important;'%></div>
+        <div style="display:inline !important;"><%= link_to 'Show', admin_article_path(@articles[i]), class: "btn btn-info pull-left" ,:style=> 'display:inline !important; margin-bottom:1000;'%>
+        <%= link_to 'Destroy', admin_article_path(@articles[i]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" ,:style=> 'display:inline !important;'%></div>
       </div>
     </div>
   </div>
@@ -31,8 +31,8 @@ end
       <div class="card-block">
         <h3 class="card-title"><%= @articles[i].title %></h3>
         <p class="card-text"><%= @articles[i].data.to_s[0...200] %></p>
-        <div style="display:inline !important;"><%= link_to 'Show', article_path(@articles[i]), class: "btn btn-info pull-left",:style=> 'display:inline !important;' %>
-        <%= link_to 'Destroy', article_path(@articles[i]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" ,:style=> 'display:inline !important;'%></div>
+        <div style="display:inline !important;"><%= link_to 'Show', admin_article_path(@articles[i]), class: "btn btn-info pull-left",:style=> 'display:inline !important;' %>
+        <%= link_to 'Destroy', admin_article_path(@articles[i]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" ,:style=> 'display:inline !important;'%></div>
       </div>
     </div>
   </div>
