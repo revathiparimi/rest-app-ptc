@@ -31,7 +31,7 @@ class ArticlesController < BaseController
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
+        format.json { render :show, status: :created, location: basic_article_path(@article) }
         #respond_with json: @article.data
       else
         format.html { render :new }

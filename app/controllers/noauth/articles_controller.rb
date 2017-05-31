@@ -14,9 +14,10 @@ class ArticlesController < BaseController
   
   def show
     #render json: @article
-    @action = "show"
-    @user = current_user
-    render action: 'show',location: api_article_path(@article)
+    # @action = "show"
+    # @user = current_user
+    # render action: 'show',location: api_article_path(@article)
+    render :json => @article.data
   end
 
   
@@ -31,7 +32,7 @@ class ArticlesController < BaseController
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
+        format.json { render :show, status: :created, location: noauth_article_path(@article)}
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }
