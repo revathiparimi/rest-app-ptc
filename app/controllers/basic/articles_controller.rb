@@ -14,9 +14,10 @@ class ArticlesController < BaseController
   
   def show
     #render json: @article
-    @action = "show"
-    @user = current_user
-    render action: 'show',location: api_article_path(@article)
+    # @action = "show"
+    # @user = current_user
+    # render action: 'show',location: api_article_path(@article)
+    render :json => @article.data
   end
 
   
