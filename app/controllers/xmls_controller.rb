@@ -25,17 +25,19 @@ class XmlsController < ApplicationController
   # POST /xmls
   # POST /xmls.json
   def create
-    @xml = Xml.new(xml_params)
+    #@xml = Xml.new(xml_params)
+    @xml = Xml.new(:data=>request.body.read)
 
-    respond_to do |format|
+    # respond_to do |format|
       if @xml.save
-        format.html { redirect_to @xml, notice: 'Xml was successfully created.' }
-        format.json { render :show, status: :created, location: @xml }
-      else
-        format.html { render :new }
+    #     format.html { redirect_to @xml, notice: 'Xml was successfully created.' }
+    #     format.json { render :show, status: :created, location: @xml }
+        render :xml => @xml.data
+       else
+    #     format.html { render :new }
         format.json { render json: @xml.errors, status: :unprocessable_entity }
-      end
-    end
+        end
+    # end
   end
 
   # PATCH/PUT /xmls/1

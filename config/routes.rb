@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  resources :csvs
   resources :xmls
   resources :schemas
   #require 'sidekiq/web'
