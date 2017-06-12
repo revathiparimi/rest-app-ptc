@@ -4,7 +4,7 @@ class XmlsController < ApplicationController
   # GET /xmls
   # GET /xmls.json
   def index
-    @xmls = Xml.all
+    @articles = Xml.all.page(params[:page]).per(8)
   end
 
   # GET /xmls/1

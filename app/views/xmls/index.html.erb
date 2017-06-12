@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p>
 
 <h1>Xmls</h1>
 
@@ -10,16 +10,66 @@
   </thead>
 
   <tbody>
-    <% @xmls.each do |xml| %>
+    <%# @xmls.each do |xml| %>
       <tr>
-        <td><%= link_to 'Show', xml %></td>
-        <td><%= link_to 'Edit', edit_xml_path(xml) %></td>
-        <td><%= link_to 'Destroy', xml, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Show', xml %></td>
+        <td><%#= link_to 'Edit', edit_xml_path(xml) %></td>
+        <td><%#= link_to 'Destroy', xml, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Xml', new_xml_path %>
+<%#= link_to 'New Xml', new_xml_path %>
+ -->
+
+
+
+<!-- <p id="notice"><%#= notice %></p> -->
+
+<h1>CDEE DATA <%= link_to 'Back', admin_articles_path, class: "btn btn-success pull-right" %></h1>
+<%arr = []
+i=0
+@articles.each do |article|
+  arr[i]=i
+  i=i+1
+end
+#arr.delete(i-1)
+%>
+
+<%for i in  arr do %>
+
+<div class="row">
+  <div class="col-sm-4" style="background-color: #4ad4ad; border-color: #333;height: 20rem;width: 40rem;">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title"><%= @articles[i].title %></h3>
+        <p class="card-text"><%= @articles[i].data.to_s[0...200] %></p>
+        <div style="display:inline !important;"><%= link_to 'Show', xml_path(@articles[i]), class: "btn btn-info pull-left" ,:style=> 'display:inline !important; margin-bottom:1000;'%>
+        <%= link_to 'Destroy', xml_path(@articles[i]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" ,:style=> 'display:inline !important;'%></div>
+      </div>
+    </div>
+  </div>
+  <%i=i+1%>
+  <%if @articles[i]!=nil%>
+  <div class="col-sm-4 col-sm-offset-1" style="background-color: #4ad4ad; border-color: #333;height: 20rem;width: 40rem;">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title"><%= @articles[i].title %></h3>
+        <p class="card-text"><%= @articles[i].data.to_s[0...200] %></p>
+        <div style="display:inline !important;"><%= link_to 'Show', xml_path(@articles[i]), class: "btn btn-info pull-left",:style=> 'display:inline !important;' %>
+        <%= link_to 'Destroy', xml_path(@articles[i]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" ,:style=> 'display:inline !important;'%></div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<br>
+<%arr.delete(i)%>
+<% end %>
+
+<br>
+
+<span class="pull-right"><%= paginate @articles %></span>
